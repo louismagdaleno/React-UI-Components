@@ -4,6 +4,7 @@ header {
     flex-direction: row;
     padding-bottom: 10px;
     padding-top: 10px;
+    font-size: 1.6rem;
 }
 header p, header h4, header h1 {
     margin: 0;
