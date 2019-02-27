@@ -1,6 +1,10 @@
+// required
 import React from 'react';
+
+// styles
 import './Footer.css';
 
+// compose Footer
 const Footer = () => {
     return (
         <footer>
@@ -14,4 +18,5 @@ const Footer = () => {
     );
 }
 
+// export footer
 export default Footer;

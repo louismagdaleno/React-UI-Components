@@ -1,7 +1,13 @@
+// required
 import React from 'react';
+
+// components
 import HeaderTitle from './HeaderTitle';
+
+//styles
 import './Header.css';
 
+// compose HeaderContent
 const HeaderContent = () => {
     return (
         
@@ -20,4 +26,5 @@ const HeaderContent = () => {
     );
 }
 
+// export HeaderContent
 export default HeaderContent;

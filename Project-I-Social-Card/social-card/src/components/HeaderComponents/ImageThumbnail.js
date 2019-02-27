@@ -1,5 +1,7 @@
+// required
 import React from 'react';
 
+// construct ImageThumbnail container that holds img
 const ImageThumbnail = () => {
     return (
         <div className="imageThumbnail">
@@ -8,4 +10,5 @@ const ImageThumbnail = () => {
     );
 }
 
+// export ImageThumbnail
 export default ImageThumbnail;
