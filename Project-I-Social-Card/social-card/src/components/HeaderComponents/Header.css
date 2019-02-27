@@ -3,3 +3,8 @@ header {
     display: flex;
     flex-direction: row;
 }
+
+header section > div {
+    display: flex;
+    flex-direction: row;
+}
