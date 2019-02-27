@@ -5,7 +5,7 @@ import './Header.css';
 const HeaderContent = () => {
     return (
         
-        <section>
+        <section className="headerContent">
             <div>
                 <h1>Lambda School</h1>
                 <HeaderTitle />

@@ -2,9 +2,33 @@
 header {
     display: flex;
     flex-direction: row;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+header p, header h4, header h1 {
+    margin: 0;
+}
+
+header>section>div {
+    margin-bottom: 10px;
 }
 
 header section > div {
     display: flex;
     flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between
+}
+
+.headerContent {
+    width: 80%;
+}
+.imageThumbnail {
+    height: 50%;
+    width: 20%;
+}
+
+.imageThumbnail>img {
+    width: 75%;
+    height: auto;
 }
