@@ -1,6 +1,11 @@
 import React from 'react';
 import './App.css';
 
+// custom components
+import  ActionButton from './components/ButtonComponents';
+import NumberButton from './components/ButtonComponents/NumberButton';
+import CalculatorDisplay from './components/DisplayComponents/CalculatorDisplay';
+
 const App = () => {
   return (
     <div>
