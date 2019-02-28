@@ -2,10 +2,10 @@
 import React from 'react';
 
 // construct ImageThumbnail container that holds img
-const ImageThumbnail = () => {
+const ImageThumbnail = (props) => {
     return (
         <div className="imageThumbnail">
-            <img src="https://tk-assets.lambdaschool.com/1c1b7262-cf23-4a9f-90b6-da0d3c74a5c6_lambdacrest.png"  alt="Lambda Logo" />
+            <img src={props.src} alt="Lambda Logo" />
         </div>
     );
 }

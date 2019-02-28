@@ -8,19 +8,16 @@ import HeaderTitle from './HeaderTitle';
 import './Header.css';
 
 // compose HeaderContent
-const HeaderContent = () => {
+const HeaderContent = (props) => {
     return (
         
         <section className="headerContent">
             <div>
-                <h1>Lambda School</h1>
-                <HeaderTitle />
+                <h1>{props.title}</h1>
+                <HeaderTitle datetime="@LambdaSchool - 27 feb"/>
             </div>
             
-             <p>Let's learn react by building simple interfaces with components.  
-                Don't try to overthink it, just keep it simple and have fun.
-                Once you feel comfortable using components you are well on your way
-                to mastering React!</p>
+             <p>{props.content}</p>
         </section>
         
     );

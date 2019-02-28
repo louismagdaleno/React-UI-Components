@@ -5,9 +5,9 @@ import React from 'react';
 import './Header.css';
 
 // compose HeaderTitle
-const HeaderTitle = () => {
+const HeaderTitle = (props) => {
     return (
-        <h4>@LambdaSchool - 27 feb</h4>
+        <h4>{props.datetime}</h4>
     );
 }
 
