@@ -6,8 +6,14 @@ import  ActionButton from './components/ButtonComponents/ActionButton';
 import NumberButton from './components/ButtonComponents/NumberButton';
 import CalculatorDisplay from './components/DisplayComponents/CalculatorDisplay';
 
-const App = () => {
-  return (
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {};
+    
+  }
+  render() { 
+    return (
     <div className="calculator">
       <div className="row">
         <CalculatorDisplay text="0" displayStyle="display" />
@@ -39,7 +45,9 @@ const App = () => {
         <NumberButton text="=" buttonStyle="operator"  />
       </div>
     </div>
-  );
+  )
+    
+  }
 };
 
 export default App;
