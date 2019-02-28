@@ -1,28 +1,29 @@
 .number {
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 4rem;
     font-weight: bold;
     width: 25%;
     height: 100%;
+    background-color: white;
     color: black;
 }
 
 .operator {
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 4rem;
     font-weight: bold;
     width: 25%;
     height: 100%;
-    background-color: #E81700;
+    background-color: #a0001e;
     color: white;
 }
 
 .action {
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 4rem;
     font-weight: bold;
     width: 75%;
     height: 100%;
