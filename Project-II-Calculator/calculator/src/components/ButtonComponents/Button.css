@@ -1,0 +1,31 @@
+.number {
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    width: 25%;
+    height: 100%;
+    color: black;
+}
+
+.operator {
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    width: 25%;
+    height: 100%;
+    background-color: #E81700;
+    color: white;
+}
+
+.action {
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    width: 75%;
+    height: 100%;
+    background-color: white;
+    color: black
+}
