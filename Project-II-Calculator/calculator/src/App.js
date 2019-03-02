@@ -1,73 +1,58 @@
 import React from 'react';
 import './App.css';
-
-// custom components
-import  ActionButton from './components/ButtonComponents/ActionButton';
-import NumberButton from './components/ButtonComponents/NumberButton';
 import CalculatorDisplay from './components/DisplayComponents/CalculatorDisplay';
+import ButtonContainer from './components/ButtonComponents/ButtonContainer';
+import ActionButton from './components/ButtonComponents/ActionButton';
+import NumberButton from './components/ButtonComponents/NumberButton';
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      numbers: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-      operators: ['&divide;','&times;', '+', '-', '=', 'clear'],
-      styles: ['display', 'action', 'operator', 'number'],
-      total: '0'
-    };
-    
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
   }
 
-  newTotal(amount) {
-    this.setState({ total: amount });
+  newNumber(amount) {
+    this.setState({ count: amount });
   }
-  twoNumbers(first, second, cb) {
-    return cb(this.newTotal(first), this.newTotal(second));
+  twoNumbers(arg1, arg2, cb) {
+    return cb(this.newNumber(arg1), this.newNumber(arg2));
   }
-  multiply(first, second) {
-    return this.twoNumbers(first * second)
+  multiply(arg1, arg2) {
+    return this.twoNumbers(arg1 * arg2)
   }
-
-  render() { 
+  render() {
     return (
-    <div className="calculator">
-      <div className="row">
-        <CalculatorDisplay text={this.state.total} displayStyle={this.state.styles[0]} />
+      <div className="calculator-wrapper">
+        <CalculatorDisplay total={this.state.count} />
+        <ButtonContainer className="clear-button">
+          <ActionButton className="three-text" text="clear" onClick={() => this.newNumber(0)} />
+          <NumberButton bgColor="red-button" value="&divide;" />
+        </ButtonContainer>
+        <ButtonContainer>
+          <NumberButton bgColor="num-button" value="7" onClick={() => this.newNumber(7)} />
+          <NumberButton bgColor="num-button" value="8" onClick={() => this.newNumber(8)} />
+          <NumberButton bgColor="num-button" value="9" onClick={() => this.newNumber(9)} />
+          <NumberButton bgColor="red-button" value="&times;" />
+        </ButtonContainer>
+        <ButtonContainer>
+          <NumberButton bgColor="num-button" value="4" onClick={() => this.newNumber(4)} />
+          <NumberButton bgColor="num-button" value="5" onClick={() => this.newNumber(5)} />
+          <NumberButton bgColor="num-button" value="6" onClick={() => this.newNumber(6)} />
+          <NumberButton bgColor="red-button" value="-" />
+        </ButtonContainer>
+        <ButtonContainer>
+          <NumberButton bgColor="num-button" value="1" onClick={() => this.newNumber(1)} />
+          <NumberButton bgColor="num-button" value="2" onClick={() => this.newNumber(2)} />
+          <NumberButton bgColor="num-button" value="3" onClick={() => this.newNumber(3)} />
+          <NumberButton bgColor="red-button" value="+" />
+        </ButtonContainer>
+        <ButtonContainer>
+          <ActionButton className="three-text" text="0" onClick={() => this.newNumber(0)} />
+          <NumberButton bgColor="red-button" value="=" />
+        </ButtonContainer>
       </div>
-      <div className="row">
-        <ActionButton text={this.state.operators[5]} buttonStyle={this.state.styles[1]}  onClick={() => this.newTotal(0)} />
-        <NumberButton text={this.state.operators[0]} buttonStyle={this.state.styles[2]}  onClick={() => this.newTotal(0)} />
-      </div>
-      <div className="row">
-        <NumberButton text={this.state.numbers[7]} buttonStyle={this.state.styles[3]}  onClick={() => this.newTotal(7)} />
-        <NumberButton text={this.state.numbers[8]} buttonStyle={this.state.styles[3]}  onClick={() => this.newTotal(8)} />
-        <NumberButton text={this.state.numbers[9]} buttonStyle={this.state.styles[3]}  onClick={() => this.newTotal(9)} />
-        <NumberButton text={this.state.operators[1]} buttonStyle={this.state.styles[2]}  />
-      </div>
-      <div className="row">
-        <NumberButton text={this.state.numbers[4]} buttonStyle={this.state.styles[3]}   onClick={() => this.newTotal(4)} />
-        <NumberButton text={this.state.numbers[5]} buttonStyle={this.state.styles[3]}  onClick={() => this.newTotal(5)}  />
-        <NumberButton text={this.state.numbers[6]} buttonStyle={this.state.styles[3]}    onClick={() => this.newTotal(6)} />
-        <NumberButton text={this.state.operators[2]} buttonStyle={this.state.styles[2]}  onClick={() => this.newTotal(0)} />
-      </div>
-      <div className="row">
-        <NumberButton text={this.state.numbers[1]} buttonStyle={this.state.styles[3]} onClick={() => this.newTotal(1)} />
-        <NumberButton text={this.state.numbers[2]} buttonStyle={this.state.styles[3]} onClick={() => this.newTotal(2)} />
-        <NumberButton text={this.state.numbers[3]} buttonStyle={this.state.styles[3]} onClick={() => this.newTotal(3)} />
-        <NumberButton text={this.state.operators[3]} buttonStyle={this.state.styles[2]}  />
-      </div>
-      <div className="row">
-        <ActionButton text={this.state.numbers[0]} buttonStyle={this.state.styles[1]}  />
-        <NumberButton text={this.state.operators[4]} buttonStyle={this.state.styles[2]}  />
-      </div>
-    </div>
-  )
-    
+    );
   }
-
-  totalChangeHandler = event => {
-    this.setState({total: event.target.value});
-  };
-};
+}
 
 export default App;
