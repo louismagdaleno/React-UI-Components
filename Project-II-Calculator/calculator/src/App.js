@@ -8,42 +8,46 @@ import NumberButton from './components/ButtonComponents/NumberButton';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { count: '0' };
-    this.total = 0;
-    this.key = '0';
+    this.state = { display: '0', total: 0, op: 'number', rh : 0 };
+
   }
   
   newNumber( keyPressed) {
-    if (this.state.count == '0' &&  ['1', '2','3','4','5','6','7','8','9'].includes(keyPressed)) {
-      this.setState({count:  keyPressed}) 
+    if (this.state.display == '0' &&  ['1', '2','3','4','5','6','7','8','9'].includes(keyPressed)) {
+      this.setState({display:  keyPressed}) 
     } else {
-      if (keyPressed == 'clear') {
-        this.total = 0;
-        this.setState({count: '0'});
-      } else if (keyPressed == '+'){
-        this.total += parseInt(this.state.count);
-        this.key = keyPressed;
-
-      } else if (keyPressed === '=') {
-        this.setState({count: this.total.toString()});
-        
+      if (['/', '*', '+', '-'].includes(keyPressed)) {
+        this.setState({op : keyPressed});
+        this.setState({total : parseFloat(this.state.display), display: "0"})
+      }  else if (keyPressed == 'clear') {
+        this.setState({display: '0', total: 0, rh: 0, op: 'number'});
       } else {
-        if (this.key == '+') {
-          this.total += parseInt(keyPressed);
-          this.setState({count: this.total.toString()});
-        } else {
-          this.setState({count: this.state.count + keyPressed}) 
+        if (keyPressed == '=') {
+          if (this.state.op == '+') {
+            this.setState({display: (parseFloat(this.state.display) + this.state.total).toString()});
+          }
+          else if (this.state.op == '-') {
+            this.setState({display:  (this.state.total - parseFloat(this.state.display) ).toString()});
+          }
+          else if (this.state.op == '/') {
+            this.setState({display:  (this.state.total / parseFloat(this.state.display) ).toString()});
+          }
+          else if (this.state.op == '*') {
+            this.setState({display:  (this.state.total * parseFloat(this.state.display) ).toString()});
+          }
+        } else if (['0','1', '2','3','4','5','6','7','8','9'].includes(keyPressed)) {
+          this.setState({display: this.state.display + keyPressed});
         }
-         
+        
       }
-     
-    }
+    
   }
+}
   
   render() {
     return (
       <div className="calculator-wrapper">
-        <CalculatorDisplay total={this.state.count} />
+        <CalculatorDisplay total={this.state.display} />
         <ButtonContainer className="clear-button">
           <ActionButton className="three-text" text="clear" onClick={() => this.newNumber('clear')} />
           <NumberButton bgColor="red-button" value="&divide;" onClick={() => this.newNumber('/')}/>
