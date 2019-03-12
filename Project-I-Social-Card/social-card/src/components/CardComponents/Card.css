@@ -1,1 +1,47 @@
 /* All styles for your Card Components live here */
+a {
+    text-decoration: none;
+    color: black;
+}
+.cardContainer {
+    height:  300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+    text-decoration: none;
+
+}
+.cardBanner {
+    width: 90%;
+    height: 200px;
+    background: url('./reactbackground.png') no-repeat;
+    background-size: cover;
+    margin-left: 10%;
+    text-decoration: none;
+
+}
+
+.cardContent {
+    width: 90%;
+    margin-left: 10%;
+    text-decoration: none;
+    
+}
+
+.cardContent>h2, .cardContent>p {
+    text-decoration: none !important;
+}
+
+.cardContent>h2 {
+    font-size: 1.4rem;
+}
+
+.cardContent>p {
+    font-size: 1.4rem;
+}
+
+.cardContent > a {
+    text-decoration: none;
+    color: silver;
+}
